@@ -55,7 +55,8 @@ export default {
       //mapex();
       //iteratorex();
       //genmain();
-      genmain1();
+      //genmain1();
+      genmain2();
     }
 
 
@@ -67,6 +68,18 @@ export default {
           yield "genc";
           yield "gend";
           return "end";
+
+      }
+
+     function genmain(){
+          var g=genex();
+          //console.log("a:");
+          console.log(g.next());
+          console.log(g.next("inject aa"));
+          //console.log(g.next("aa").value);
+          //console.log(g.next().value);
+          //console.log("gena:"+g.next());
+          //console.log("genb:"+g.next());
 
       }
 
@@ -83,27 +96,37 @@ export default {
 
       function genmain1(){
           var g1=genex1(5);
-          //console.log("a:");
+
           console.log(g1.next());
-          console.log(g1.next());
-          //console.log(g.next("aa").value);
-          //console.log(g.next().value);
           console.log(g1.next(3));
           console.log(g1.next(3));
 
       }
 
-      function genmain(){
-          var g=genex();
-          //console.log("a:");
-          console.log(g.next());
-          console.log(g.next("inject aa"));
-          //console.log(g.next("aa").value);
-          //console.log(g.next().value);
-          //console.log("gena:"+g.next());
-          //console.log("genb:"+g.next());
+      function genmain2(){
 
+         let y;
+          var func=function(time){
+            setTimeout(function(){
+                console.log(time," on");
+                //y.next();
+            },time)
+          }
+
+        function* genex2(){
+           var f1=yield func(3000);
+          console.log("f1:",f1);
+
+          var f2=yield func(1000);
+          console.log("f2:",f2);
+        }
+
+        y=genex2();
+        y.next();
+        y.next();
+        console.log("end");
       }
+
 
       function af(uname,uid){
         alert(uname);
