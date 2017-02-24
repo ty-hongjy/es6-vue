@@ -35,10 +35,6 @@ export default {
 
 
 
-      function af(uname,uid){
-        alert(uname);
-        }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
