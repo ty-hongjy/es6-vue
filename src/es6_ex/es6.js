@@ -39,7 +39,7 @@ export  function iteratorex(){
 
       }
 
-      function setex(){
+ export  function setex(){
 
         var nset=new Set([1,2,3,4,2,8,4]);
         for(var elem of nset){
@@ -80,3 +80,104 @@ export  function iteratorex(){
         console.log("wset.has(aobj):"+wset.has(aobj));
 
       }
+
+export function stes6(){
+      let [a,b,c,d]=['aa','bb',77,88];
+      //let [a,b,c,d]=['aa','bb',77,88];
+      {
+      let a=0;
+      //alert(a);
+      }
+      //alert(a);
+
+
+      let obj=new Object();
+      obj.uid=111;
+      obj.uname="zs";
+      obj.arr=['aa','bb'];
+      //let {uname:name,uid:id}=obj;
+      let uname,uid,arr,a1,b1;
+      //({uname,uid}=obj);
+      ({arr:[a1,b1]}=obj);
+      //alert(a1);
+      //af(obj);
+      setex();
+      //mapex();
+      //iteratorex();
+      //genmain();
+      //genmain1();
+      //genmain2();
+    }
+
+
+export  function* genex(){
+          console.log("a1:");
+          console.log("a:"+(yield "gena"));
+          //yield "gena";
+          yield "genb";
+          yield "genc";
+          yield "gend";
+          return "end";
+
+      }
+
+export  function genmain(){
+          var g=genex();
+          //console.log("a:");
+          console.log(g.next());
+          console.log(g.next("inject aa"));
+          //console.log(g.next("aa").value);
+          //console.log(g.next().value);
+          //console.log("gena:"+g.next());
+          //console.log("genb:"+g.next());
+
+      }
+
+export  function* genex1(num){
+          let x=2*(yield num);
+          console.log("x="+x);
+
+          let y=yield x*3;
+
+          console.log("y="+y);
+          console.log(x,y);
+
+      }
+
+export   function genmain1(){
+          var g1=genex1(5);
+
+          console.log(g1.next());
+          console.log(g1.next(3));
+          console.log(g1.next(3));
+
+      }
+
+export  function genmain2(){
+
+         let y;
+          var func=function(time){
+            setTimeout(function(){
+                console.log(time," on");
+                //y.next();
+            },time)
+          }
+
+        function* genex2(){
+           var f1=yield func(3000);
+          console.log("f1:",f1);
+
+          var f2=yield func(1000);
+          console.log("f2:",f2);
+        }
+
+        y=genex2();
+        y.next();
+        y.next();
+        console.log("end");
+      }
+
+
+      function af(uname,uid){
+        alert(uname);
+        }
