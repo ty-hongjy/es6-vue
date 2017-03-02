@@ -101,12 +101,12 @@ export function stes6(){
       ({arr:[a1,b1]}=obj);
       //alert(a1);
       //af(obj);
-      setex();
+      //setex();
       //mapex();
       //iteratorex();
       //genmain();
       //genmain1();
-      //genmain2();
+      genmain2();
     }
 
 
@@ -156,27 +156,29 @@ export   function genmain1(){
 export  function genmain2(){
 
          let y;
+
+ 
+        y=genex2();
+        y.next();
+        y.next();
+        console.log("end");
+
+
+	  function* genex2(){
           var func=function(time){
             setTimeout(function(){
                 console.log(time," on");
                 //y.next();
             },time)
           }
-
-        function* genex2(){
+           
            var f1=yield func(3000);
           console.log("f1:",f1);
 
           var f2=yield func(1000);
           console.log("f2:",f2);
         }
-
-        y=genex2();
-        y.next();
-        y.next();
-        console.log("end");
       }
-
 
       function af(uname,uid){
         alert(uname);
